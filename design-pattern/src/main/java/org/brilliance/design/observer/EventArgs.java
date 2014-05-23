@@ -1,48 +1,43 @@
 /**   
 * @Title: EventArgs.java 
-* @Package org.brilliance.design.observer 
+* @Package org.brilliance.design.observer.jdk 
 * @Description: TODO
-* @author Pie.Li   
-* @date 2014-3-28 下午5:34:51 
+* @author PAI LI   
+* @date 2014-5-22 下午1:07:34 
 * @version V1.0   
 */
 package org.brilliance.design.observer;
 
 /**
- * @author Pie.Li
+ * @author PAI LI
  *
  */
 public class EventArgs {
 
-	private String eventCode;
-	private Object[] args;
-
+	public EventArgs(EventCodeGroup eventCodeGroup) {
+		this.eventCodeGroup = eventCodeGroup;
+	}
+	
+	private EventCodeGroup eventCodeGroup;
 	/**
 	 * @return the eventCode
 	 */
-	public String getEventCode() {
-		return eventCode;
+	public EventCodeGroup getEventCodeGroup() {
+		return eventCodeGroup;
 	}
-
-	/**
-	 * @param eventCode the eventCode to set
-	 */
-	public void setEventCode(String eventCode) {
-		this.eventCode = eventCode;
-	}
-
-	/**
-	 * @return the args
-	 */
-	public Object[] getArgs() {
-		return args;
-	}
-
-	/**
-	 * @param args the args to set
-	 */
-	public void setArgs(Object[] args) {
-		this.args = args;
-	}	
 	
+	private Object passingArguments;
+	/**
+	 * @return the passingArguments
+	 */
+	public Object getPassingArguments() {
+		return passingArguments;
+	}
+
+	/**
+	 * @param passingArguments the passingArguments to set
+	 */
+	public void setPassingArguments(Object passingArguments) {
+		this.passingArguments = passingArguments;
+	}
 }

@@ -6,7 +6,7 @@
 * @date 2014-5-22 上午10:41:04 
 * @version V1.0   
 */
-package org.brilliance.design.observer.jdk;
+package org.brilliance.design.observer;
 
 import java.util.ArrayList;
 import java.util.Collection;

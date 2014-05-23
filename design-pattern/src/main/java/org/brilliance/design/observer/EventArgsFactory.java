@@ -6,7 +6,7 @@
 * @date 2014-5-22 下午1:18:21 
 * @version V1.0   
 */
-package org.brilliance.design.observer.jdk;
+package org.brilliance.design.observer;
 
 /**
  * @author PAI LI

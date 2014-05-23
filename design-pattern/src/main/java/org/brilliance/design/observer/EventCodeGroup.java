@@ -6,7 +6,7 @@
 * @date 2014-5-22 下午1:21:16 
 * @version V1.0   
 */
-package org.brilliance.design.observer.jdk;
+package org.brilliance.design.observer;
 
 /**
  * @author PAI LI
@@ -43,7 +43,7 @@ public class EventCodeGroup {
 				return item;
 			}
 		}
-		return null;
+		throw new UnsupportedOperationException("EventCode not found error!");
 	}  
 	
 }
