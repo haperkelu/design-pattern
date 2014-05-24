@@ -10,8 +10,7 @@ package org.brilliance.design.observer;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
+import java.util.Collections;
 
 /**
  * @author PAI LI
@@ -20,24 +19,14 @@ import java.util.concurrent.locks.ReentrantLock;
 public class Observable {
 
 	private Collection<Observer> observers;
-	private Lock addObserverLock = new ReentrantLock();
-	
-	@SuppressWarnings("unused")
 	private boolean stateChanged = false;
 	
 	public Observable() {
-		this.observers = new ArrayList<Observer>();
+		this.observers = Collections.synchronizedCollection(new ArrayList<Observer>());
 	}
 
 	public void addObserver(Observer observer) {
-
-		if(!observers.contains(observer)){
-			addObserverLock.lock();
-			if(!observers.contains(observer)) {
-				observers.add(observer);
-			}
-			addObserverLock.unlock();
-		}
+		observers.add(observer);
 	}
 	
 	public void removeObserver(Observer observer) {
@@ -52,12 +41,16 @@ public class Observable {
 		}
 	}
 	
-	public void setStateChanged(){
+	private void setStateChanged(){
 		this.stateChanged = true;
 	}
 	
-	public void resetState() {
+	private void resetState() {
 		this.stateChanged = false;
+	}
+	
+	public boolean getStateChanged() {
+		return this.stateChanged;
 	}
 	
 	private void notifyObservers(EventCodeGroup eventCode, Object passingParameter) {

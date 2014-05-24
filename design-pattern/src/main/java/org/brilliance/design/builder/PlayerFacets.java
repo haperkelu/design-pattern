@@ -64,6 +64,12 @@ public class PlayerFacets {
 			return new PlayerFacets(this);
 		}
 		
-	} 
+	}
+
+	@Override
+	public String toString() {
+		return "PlayerFacets [talents=" + talents + ", stamina=" + stamina
+				+ ", mentality=" + mentality + ", teamWork=" + teamWork + "]";
+	}
 	
 }
